@@ -1,0 +1,58 @@
+{
+  "post": {
+    "tags": [
+      "Upload"
+    ],
+    "summary": "Upload image",
+    "description": "",
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "name": "file",
+        "in": "formData",
+        "description": "file to upload",
+        "required": false,
+        "type": "file"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "successful operation",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Bad request",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      },
+      "401": {
+        "description": "Unauthorized",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      },
+      "404": {
+        "description": "Not found",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  }
+}

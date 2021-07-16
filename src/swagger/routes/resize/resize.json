@@ -1,0 +1,89 @@
+{
+  "put": {
+    "tags": [
+      "Resize"
+    ],
+    "summary": "Resize img",
+    "description": "",
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "parameters": [
+      {
+        "in": "body",
+        "type": "body",
+        "name": "body",
+        "description": "",
+        "required": false,
+        "schema": {
+          "type": "object",
+          "required": [
+            "src",
+            "height",
+            "width"
+          ],
+          "properties": {
+            "src": {
+              "type": "string"
+            },
+            "height": {
+              "type": "number"
+            },
+            "width": {
+              "type": "number"
+            },
+            "fit": {
+              "type": "string",
+              "enum": [
+                "cover",
+                "contain",
+                "fill",
+                "inside"
+              ]
+            },
+            "quality": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "successful operation",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Bad request",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      },
+      "401": {
+        "description": "Unauthorized",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      },
+      "404": {
+        "description": "Not found",
+        "schema": {
+          "$ref": "#/definitions/Error"
+        }
+      }
+    }
+  }
+}
